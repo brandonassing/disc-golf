@@ -12,6 +12,7 @@ struct RoundView: View {
     var body: some View {
 		VStack {
 			ScorecardView(scorecard: self.viewModel.scorecard)
+				.padding()
 			
 			Spacer()
 			

@@ -19,6 +19,9 @@
 		5C2C43D828528AA800FA5C77 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43D728528AA800FA5C77 /* Scorecard.swift */; };
 		5C2C43DA28528EB400FA5C77 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43D928528EB400FA5C77 /* RoundView.swift */; };
 		5C2C43DC2852931900FA5C77 /* RoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43DB2852931900FA5C77 /* RoundViewModel.swift */; };
+		5C2C43E42852A64C00FA5C77 /* ScorecardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43E32852A64C00FA5C77 /* ScorecardViewModel.swift */; };
+		5C2C43E72852A78300FA5C77 /* ScorecardLabelCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43E62852A78300FA5C77 /* ScorecardLabelCellView.swift */; };
+		5C2C43E92852A79500FA5C77 /* ScorecardHoleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43E82852A79500FA5C77 /* ScorecardHoleCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		5C2C43D728528AA800FA5C77 /* Scorecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
 		5C2C43D928528EB400FA5C77 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		5C2C43DB2852931900FA5C77 /* RoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundViewModel.swift; sourceTree = "<group>"; };
+		5C2C43E32852A64C00FA5C77 /* ScorecardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardViewModel.swift; sourceTree = "<group>"; };
+		5C2C43E62852A78300FA5C77 /* ScorecardLabelCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardLabelCellView.swift; sourceTree = "<group>"; };
+		5C2C43E82852A79500FA5C77 /* ScorecardHoleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardHoleCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,9 +191,20 @@
 		5C2C43DD285295F400FA5C77 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				5C2C43CE2852819600FA5C77 /* ScorecardView.swift */,
+				5C2C43E52852A65500FA5C77 /* ScorecardView */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		5C2C43E52852A65500FA5C77 /* ScorecardView */ = {
+			isa = PBXGroup;
+			children = (
+				5C2C43CE2852819600FA5C77 /* ScorecardView.swift */,
+				5C2C43E32852A64C00FA5C77 /* ScorecardViewModel.swift */,
+				5C2C43E62852A78300FA5C77 /* ScorecardLabelCellView.swift */,
+				5C2C43E82852A79500FA5C77 /* ScorecardHoleCellView.swift */,
+			);
+			path = ScorecardView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,10 +337,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C2C43E42852A64C00FA5C77 /* ScorecardViewModel.swift in Sources */,
 				5C2C43CF2852819600FA5C77 /* ScorecardView.swift in Sources */,
 				5C2C43D828528AA800FA5C77 /* Scorecard.swift in Sources */,
+				5C2C43E92852A79500FA5C77 /* ScorecardHoleCellView.swift in Sources */,
 				5C2C43DA28528EB400FA5C77 /* RoundView.swift in Sources */,
 				5C2C43DC2852931900FA5C77 /* RoundViewModel.swift in Sources */,
+				5C2C43E72852A78300FA5C77 /* ScorecardLabelCellView.swift in Sources */,
 				5C2C43A728527C8800FA5C77 /* HomeView.swift in Sources */,
 				5C2C43D5285284A800FA5C77 /* Displayable.swift in Sources */,
 				5C2C43A528527C8800FA5C77 /* disc_golfApp.swift in Sources */,
