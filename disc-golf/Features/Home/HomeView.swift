@@ -20,7 +20,7 @@ struct HomeView: View {
 	}
 	
 	enum Items: String, CaseIterable {
-		case scorecard
+		case newRound
 	}
 }
 
@@ -28,15 +28,15 @@ extension HomeView.Items: Displayable {
 	
 	var displayName: String {
 		switch self {
-		case .scorecard:
-			return "New scorecard"
+		case .newRound:
+			return "New round"
 		}
 	}
 	
 	var route: some View {
 		switch self {
-		case .scorecard:
-			return ScorecardView()
+		case .newRound:
+			return RoundView()
 		}
 	}
 
