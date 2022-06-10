@@ -52,6 +52,11 @@ class RoundViewModel: ObservableObject {
 		)
 				
 		Publishers.CombineLatest(parSubject, holeNameSubject)
+			// Prevents multiple emissions to currentHole initially when a scorecard is passed in
+			.filter({ [weak self] par, holeName in
+				guard let self = self else { return false }
+				return par != self.currentHole.par || holeName != self.currentHole.name
+			})
 			.map({ par, holeName in
 				Hole(name: holeName, par: par, strokes: nil)
 			})
