@@ -40,10 +40,16 @@ struct RoundView: View {
 						Image(systemName: "chevron.left")
 					}
 					
+					// TODO: prevent empty string. Maybe just disable next/back button? This would allow user to completely change a hole name (ie: change "1" to "2")
 					TextField("Hole", text: self.$holeName)
 						.frame(width: 50)
 						.multilineTextAlignment(.center)
 						.onChange(of: self.holeName, perform: { holeName in
+							// TODO: should this logic be moved to vm?
+							guard holeName.count <= 2 else {
+								self.holeName = String(holeName.prefix(2))
+								return
+							}
 							self.viewModel.inputs.holeName.send(holeName)
 						})
 						.onReceive(self.viewModel.$currentHole, perform: { currentHole in
