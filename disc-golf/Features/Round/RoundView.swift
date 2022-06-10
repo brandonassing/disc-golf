@@ -41,7 +41,7 @@ struct RoundView: View {
 					Button(action: self.viewModel.inputs.previousHole.send) {
 						Image(systemName: "chevron.left")
 					}
-					Text("Hole")
+					Text(self.viewModel.currentHole.name)
 					Button(action: self.viewModel.inputs.nextHole.send) {
 						Image(systemName: "chevron.right")
 					}
