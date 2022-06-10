@@ -64,6 +64,12 @@ class RoundViewModel: ObservableObject {
 			})
 			.assign(to: &self.$currentHole)
 		
+		self.$currentHole
+			.sink(receiveValue: { hole in
+				holeNameSubject.send(hole.name)
+				self.parOption = ParOption(rawValue: hole.par)!
+			})
+			.store(in: &self.disposables)
 	}
 	
 	enum ParOption: Int, CaseIterable {
