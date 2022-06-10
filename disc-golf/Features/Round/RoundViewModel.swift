@@ -56,8 +56,9 @@ class RoundViewModel: ObservableObject {
 		Publishers.CombineLatest(holeNameSubject, self.$parOption)
 			// .debounce().filter() prevents cycle when this chain updates currentHole
 			.debounce(for: .milliseconds(100), scheduler: DispatchQueue.main)
-			.filter({
-				self.currentHole.name != $0 || self.currentHole.par != $1.rawValue
+			.filter({ [weak self] holeName, parOption in
+				guard let self = self else { return false }
+				return self.currentHole.name != holeName || self.currentHole.par != parOption.rawValue
 			})
 			.map({ holeName, par in
 				Hole(name: holeName, par: par.rawValue, strokes: nil)
@@ -65,9 +66,11 @@ class RoundViewModel: ObservableObject {
 			.assign(to: &self.$currentHole)
 		
 		self.$currentHole
-			.sink(receiveValue: { hole in
+			.sink(receiveValue: { [weak self] hole in
+				guard let self = self else { return }
+				
 				holeNameSubject.send(hole.name)
-				self.parOption = ParOption(rawValue: hole.par)!
+				self.parOption = ParOption(rawValue: hole.par) ?? RoundViewModel.defaultPar
 			})
 			.store(in: &self.disposables)
 	}
