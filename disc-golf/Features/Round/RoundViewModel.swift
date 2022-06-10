@@ -4,9 +4,11 @@ import Combine
 class RoundViewModel: ObservableObject {
 	
 	static let defaultPar = ParOption.three
+	static let defaultHoleName = "1"
 	
 	struct Inputs {
 		let par: CurrentValueSubject<Int, Never>
+		let holeName: CurrentValueSubject<String, Never>
 		let previousHole: PassthroughSubject<Void, Never>
 		let nextHole: PassthroughSubject<Void, Never>
 	}
@@ -21,15 +23,17 @@ class RoundViewModel: ObservableObject {
 	init(scorecard: Scorecard?) {
 		
 		let parSubject = CurrentValueSubject<Int, Never>(RoundViewModel.defaultPar.rawValue)
+		let holeNameSubject = CurrentValueSubject<String, Never>(RoundViewModel.defaultHoleName)
 		let previousHoleSubject = PassthroughSubject<Void, Never>()
 		let nextHoleSubject = PassthroughSubject<Void, Never>()
 		self.inputs = Inputs(
 			par: parSubject,
+			holeName: holeNameSubject,
 			previousHole: previousHoleSubject,
 			nextHole: nextHoleSubject
 		)
 		
-		let defaultHole = Hole(name: "1", par: RoundViewModel.defaultPar.rawValue, strokes: nil)
+		let defaultHole = Hole(name: RoundViewModel.defaultHoleName, par: RoundViewModel.defaultPar.rawValue, strokes: nil)
 		if let scorecard = scorecard, !scorecard.holes.isEmpty {
 			self.scorecard = scorecard
 			self.currentHole = scorecard.holes.first ?? defaultHole

@@ -4,6 +4,8 @@ import SwiftUI
 struct RoundView: View {
 	
 	@State private var parOption = RoundViewModel.defaultPar.rawValue
+	@State private var holeName = RoundViewModel.defaultHoleName
+	
 	@StateObject private var viewModel: RoundViewModel
 
 	init(scorecard: Scorecard? = nil) {
@@ -31,6 +33,9 @@ struct RoundView: View {
 				.onChange(of: self.parOption, perform: { par in
 					self.viewModel.inputs.par.send(par)
 				})
+				.onReceive(self.viewModel.$currentHole, perform: { currentHole in
+					self.parOption = currentHole.par
+				})
 				
 				Spacer()
 				HStack {
@@ -41,7 +46,17 @@ struct RoundView: View {
 					Button(action: self.viewModel.inputs.previousHole.send) {
 						Image(systemName: "chevron.left")
 					}
-					Text(self.viewModel.currentHole.name)
+					
+					TextField("Hole", text: self.$holeName)
+						.frame(width: 50)
+						.multilineTextAlignment(.center)
+						.onChange(of: self.holeName, perform: { holeName in
+							self.viewModel.inputs.holeName.send(holeName)
+						})
+						.onReceive(self.viewModel.$currentHole, perform: { currentHole in
+							self.holeName = currentHole.name
+						})
+					
 					Button(action: self.viewModel.inputs.nextHole.send) {
 						Image(systemName: "chevron.right")
 					}
