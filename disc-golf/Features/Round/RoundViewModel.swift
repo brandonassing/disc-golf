@@ -1,5 +1,6 @@
 
 import Combine
+import Foundation
 
 class RoundViewModel: ObservableObject {
 	
@@ -7,7 +8,6 @@ class RoundViewModel: ObservableObject {
 	static let defaultHoleName = "1"
 	
 	struct Inputs {
-		let par: CurrentValueSubject<Int, Never>
 		let holeName: CurrentValueSubject<String, Never>
 		let previousHole: PassthroughSubject<Void, Never>
 		let nextHole: PassthroughSubject<Void, Never>
@@ -15,21 +15,25 @@ class RoundViewModel: ObservableObject {
 	
 	let inputs: Inputs
 	
-	@Published var scorecard: Scorecard
+	@Published var parOption: ParOption = RoundViewModel.defaultPar
+
 	@Published var currentHole: Hole
-	
+	@Published var scorecard: Scorecard
+
 	private var disposables = Set<AnyCancellable>()
 	
 	init(scorecard: Scorecard?) {
 		
-		var defaultHole = Hole(name: RoundViewModel.defaultHoleName, par: RoundViewModel.defaultPar.rawValue, strokes: nil)
+		var startingHole = Hole(name: RoundViewModel.defaultHoleName, par: RoundViewModel.defaultPar.rawValue, strokes: nil)
+		
 		if let scorecard = scorecard, !scorecard.holes.isEmpty {
 			self.scorecard = scorecard
-			if let firstHole = scorecard.holes.first {
-				defaultHole = firstHole
+			if let firstHole = scorecard.holes.first, let parOption = ParOption(rawValue: firstHole.par) {
+				startingHole = firstHole
+				self.parOption = parOption
 			}
 		} else {
-			self.scorecard = Scorecard(name: nil, holes: [defaultHole])
+			self.scorecard = Scorecard(name: nil, holes: [startingHole])
 //			self.scorecard = Scorecard(name: nil, holes: [
 //				Hole(name: "1", par: 3, strokes: 3), Hole(name: "2", par: 4, strokes: 3), Hole(name: "3", par: 3, strokes: 4),
 //				Hole(name: "4", par: 3, strokes: 3), Hole(name: "5", par: 3, strokes: 3), Hole(name: "6L", par: 3, strokes: 5),
@@ -38,27 +42,25 @@ class RoundViewModel: ObservableObject {
 //			])
 		}
 
-		self.currentHole = defaultHole
+		self.currentHole = startingHole
 		
-		let parSubject = CurrentValueSubject<Int, Never>(defaultHole.par)
-		let holeNameSubject = CurrentValueSubject<String, Never>(defaultHole.name)
+		let holeNameSubject = CurrentValueSubject<String, Never>(startingHole.name)
 		let previousHoleSubject = PassthroughSubject<Void, Never>()
 		let nextHoleSubject = PassthroughSubject<Void, Never>()
 		self.inputs = Inputs(
-			par: parSubject,
 			holeName: holeNameSubject,
 			previousHole: previousHoleSubject,
 			nextHole: nextHoleSubject
 		)
 				
-		Publishers.CombineLatest(parSubject, holeNameSubject)
-			// Prevents multiple emissions to currentHole initially when a scorecard is passed in
-			.filter({ [weak self] par, holeName in
-				guard let self = self else { return false }
-				return par != self.currentHole.par || holeName != self.currentHole.name
+		Publishers.CombineLatest(holeNameSubject, self.$parOption)
+			// .debounce().filter() prevents cycle when this chain updates currentHole
+			.debounce(for: .milliseconds(100), scheduler: DispatchQueue.main)
+			.filter({
+				self.currentHole.name != $0 || self.currentHole.par != $1.rawValue
 			})
-			.map({ par, holeName in
-				Hole(name: holeName, par: par, strokes: nil)
+			.map({ holeName, par in
+				Hole(name: holeName, par: par.rawValue, strokes: nil)
 			})
 			.assign(to: &self.$currentHole)
 		

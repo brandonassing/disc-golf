@@ -3,7 +3,6 @@ import SwiftUI
 
 struct RoundView: View {
 	
-	@State private var parOption = RoundViewModel.defaultPar.rawValue
 	@State private var holeName = RoundViewModel.defaultHoleName
 	
 	@StateObject private var viewModel: RoundViewModel
@@ -23,19 +22,13 @@ struct RoundView: View {
 			VStack {
 				Text("Par")
 
-				Picker("Par", selection: self.$parOption) {
+				Picker("Par", selection: self.$viewModel.parOption) {
 					ForEach(RoundViewModel.ParOption.allCases, id: \.rawValue) { parOption in
 						Text("\(parOption.rawValue)")
-							.tag(parOption.rawValue)
+							.tag(parOption)
 					}
 				}
 				.pickerStyle(.segmented)
-				.onChange(of: self.parOption, perform: { par in
-					self.viewModel.inputs.par.send(par)
-				})
-				.onReceive(self.viewModel.$currentHole, perform: { currentHole in
-					self.parOption = currentHole.par
-				})
 				
 				Spacer()
 				HStack {
