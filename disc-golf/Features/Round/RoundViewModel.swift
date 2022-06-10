@@ -3,12 +3,32 @@ import Combine
 
 class RoundViewModel: ObservableObject {
 	
-	private static let defaultPar = 3
+	static let defaultPar = ParOption.three
+	
+	struct Inputs {
+		let par: CurrentValueSubject<Int, Never>
+		let previousHole: PassthroughSubject<Void, Never>
+		let nextHole: PassthroughSubject<Void, Never>
+	}
+	
+	let inputs: Inputs
 	
 	@Published var scorecard: Scorecard
-	@Published var currentHole: Hole = Hole(name: "1", par: RoundViewModel.defaultPar, strokes: nil)
+	@Published var currentHole: Hole = Hole(name: "1", par: RoundViewModel.defaultPar.rawValue, strokes: nil)
+	
+	private var disposables = Set<AnyCancellable>()
 	
 	init(scorecard: Scorecard?) {
+		
+		let parSubject = CurrentValueSubject<Int, Never>(RoundViewModel.defaultPar.rawValue)
+		let previousHoleSubject = PassthroughSubject<Void, Never>()
+		let nextHoleSubject = PassthroughSubject<Void, Never>()
+		self.inputs = Inputs(
+			par: parSubject,
+			previousHole: previousHoleSubject,
+			nextHole: nextHoleSubject
+		)
+		
 		if let scorecard = scorecard {
 			self.scorecard = scorecard
 		} else {
@@ -20,5 +40,14 @@ class RoundViewModel: ObservableObject {
 			])
 //			self.scorecard = Scorecard(name: nil, holes: [self.currentHole]) // TODO: want to add first hole to default scorecard
 		}
+		
+	}
+	
+	enum ParOption: Int, CaseIterable {
+		case two = 2
+		case three = 3
+		case four = 4
+		case five = 5
+		case six = 6
 	}
 }
