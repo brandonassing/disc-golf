@@ -20,21 +20,42 @@ struct RoundView: View {
 				.frame(height: 50)
 			
 			VStack {
-				Text("Par")
-
-				Picker("Par", selection: self.$viewModel.parOption) {
-					ForEach(RoundViewModel.ParOption.allCases, id: \.rawValue) { parOption in
-						Text("\(parOption.rawValue)")
-							.tag(parOption)
+				VStack {
+					Text("Par")
+					
+					Picker("Par", selection: self.$viewModel.parOption) {
+						ForEach(RoundViewModel.ParOption.allCases, id: \.rawValue) { parOption in
+							Text("\(parOption.rawValue)")
+								.tag(parOption)
+						}
 					}
+					.pickerStyle(.segmented)
 				}
-				.pickerStyle(.segmented)
 				
 				Spacer()
-				HStack {
+				
+				VStack(spacing: 10) {
 					Text("Throws")
+					
+					HStack(spacing: 50) {
+						Button(action: self.viewModel.inputs.decreaseStrokes.send) {
+							Image(systemName: "minus")
+						}
+						
+						if let strokes = self.viewModel.strokes {
+							Text("\(strokes)")
+						} else {
+							Text("-")
+						}
+						
+						Button(action: self.viewModel.inputs.increaseStrokes.send) {
+							Image(systemName: "plus")
+						}
+					}
 				}
+				
 				Spacer()
+				
 				HStack(spacing: 50) {
 					Button(action: self.viewModel.inputs.previousHole.send) {
 						Image(systemName: "chevron.left")

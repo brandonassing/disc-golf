@@ -8,6 +8,8 @@ class RoundViewModel: ObservableObject {
 	static let defaultHoleName = "1"
 	
 	struct Inputs {
+		let decreaseStrokes: PassthroughSubject<Void, Never>
+		let increaseStrokes: PassthroughSubject<Void, Never>
 		let holeName: CurrentValueSubject<String, Never>
 		let previousHole: PassthroughSubject<Void, Never>
 		let nextHole: PassthroughSubject<Void, Never>
@@ -16,7 +18,8 @@ class RoundViewModel: ObservableObject {
 	let inputs: Inputs
 	
 	@Published var parOption: ParOption = RoundViewModel.defaultPar
-
+	@Published var strokes: Int?
+	
 	@Published var currentHole: Hole
 	@Published var scorecard: Scorecard
 
@@ -44,15 +47,34 @@ class RoundViewModel: ObservableObject {
 
 		self.currentHole = startingHole
 		
+		let decreaseStrokesSubject = PassthroughSubject<Void, Never>()
+		let increaseStrokesSubject = PassthroughSubject<Void, Never>()
 		let holeNameSubject = CurrentValueSubject<String, Never>(startingHole.name)
 		let previousHoleSubject = PassthroughSubject<Void, Never>()
 		let nextHoleSubject = PassthroughSubject<Void, Never>()
 		self.inputs = Inputs(
+			decreaseStrokes: decreaseStrokesSubject,
+			increaseStrokes: increaseStrokesSubject,
 			holeName: holeNameSubject,
 			previousHole: previousHoleSubject,
 			nextHole: nextHoleSubject
 		)
-				
+
+		decreaseStrokesSubject
+			.sink(receiveValue: { [weak self] _ in
+				guard let self = self else { return }
+				let numStrokes = (self.strokes ?? 0) - 1
+				self.strokes = numStrokes >= 1 ? numStrokes : nil
+			})
+			.store(in: &self.disposables)
+
+		increaseStrokesSubject
+			.sink(receiveValue: { [weak self] _ in
+				guard let self = self else { return }
+				self.strokes = (self.strokes ?? 0) + 1
+			})
+			.store(in: &self.disposables)
+
 		Publishers.CombineLatest(holeNameSubject, self.$parOption)
 			// .debounce().filter() prevents cycle when this chain updates currentHole
 			.debounce(for: .milliseconds(100), scheduler: DispatchQueue.main)
@@ -71,6 +93,7 @@ class RoundViewModel: ObservableObject {
 				
 				holeNameSubject.send(hole.name)
 				self.parOption = ParOption(rawValue: hole.par) ?? RoundViewModel.defaultPar
+				self.strokes = hole.strokes
 			})
 			.store(in: &self.disposables)
 	}
