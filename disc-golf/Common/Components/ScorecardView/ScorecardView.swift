@@ -3,10 +3,10 @@ import SwiftUI
 
 struct ScorecardView: View {
 	
-	@StateObject private var viewModel: ScorecardViewModel
+	@ObservedObject var viewModel: ScorecardViewModel
 	
-	init(scorecard: Scorecard) {
-		self._viewModel = StateObject(wrappedValue: ScorecardViewModel(scorecard: scorecard))
+	init(viewModel: ScorecardViewModel) {
+		self._viewModel = ObservedObject(wrappedValue: viewModel)
 	}
 	
 	private let columns: [GridItem] = ScorecardViewModel.Cell.labelGridItems + ScorecardViewModel.Cell.holeGridItems

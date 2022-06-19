@@ -27,22 +27,17 @@ class RoundViewModel: ObservableObject {
 	
 	init(scorecard: Scorecard?) {
 		
-		var startingHole = Hole(name: RoundViewModel.defaultHoleName, par: RoundViewModel.defaultPar.rawValue, strokes: nil)
+		var startingHole = Hole(id: UUID(), name: RoundViewModel.defaultHoleName, par: RoundViewModel.defaultPar.rawValue, strokes: nil)
 		
 		if let scorecard = scorecard, !scorecard.holes.isEmpty {
 			self.scorecard = scorecard
 			if let firstHole = scorecard.holes.first, let parOption = ParOption(rawValue: firstHole.par) {
 				startingHole = firstHole
 				self.parOption = parOption
+				self.strokes = firstHole.strokes
 			}
 		} else {
 			self.scorecard = Scorecard(name: nil, holes: [startingHole])
-//			self.scorecard = Scorecard(name: nil, holes: [
-//				Hole(name: "1", par: 3, strokes: 3), Hole(name: "2", par: 4, strokes: 3), Hole(name: "3", par: 3, strokes: 4),
-//				Hole(name: "4", par: 3, strokes: 3), Hole(name: "5", par: 3, strokes: 3), Hole(name: "6L", par: 3, strokes: 5),
-//				Hole(name: "7", par: 5, strokes: 4), Hole(name: "8", par: 4, strokes: 4), Hole(name: "9", par: 4, strokes: 4),
-//				Hole(name: "10", par: 3, strokes: 3), Hole(name: "11", par: 4, strokes: 5), Hole(name: "12", par: 4, strokes: nil),
-//			])
 		}
 
 		self.currentHole = startingHole
@@ -75,17 +70,30 @@ class RoundViewModel: ObservableObject {
 			})
 			.store(in: &self.disposables)
 
-		Publishers.CombineLatest(holeNameSubject, self.$parOption)
+		Publishers.CombineLatest3(holeNameSubject, self.$parOption, self.$strokes)
 			// .debounce().filter() prevents cycle when this chain updates currentHole
 			.debounce(for: .milliseconds(100), scheduler: DispatchQueue.main)
-			.filter({ [weak self] holeName, parOption in
+			.filter({ [weak self] holeName, parOption, strokes in
 				guard let self = self else { return false }
-				return self.currentHole.name != holeName || self.currentHole.par != parOption.rawValue
+				return self.currentHole.name != holeName || self.currentHole.par != parOption.rawValue || self.currentHole.strokes != strokes
 			})
-			.map({ holeName, par in
-				Hole(name: holeName, par: par.rawValue, strokes: nil)
+			.map({ [weak self] holeName, par, strokes -> Hole? in
+				guard let self = self else { return nil }
+				return Hole(id: self.currentHole.id, name: holeName, par: par.rawValue, strokes: strokes)
 			})
-			.assign(to: &self.$currentHole)
+			.sink(receiveValue: { [weak self] hole in
+				guard let self = self, let hole = hole else { return }
+				
+				var holes = self.scorecard.holes
+				
+				let index = holes.firstIndex(where: { $0.id == self.currentHole.id })
+				guard let index = index else { return }
+				holes.removeAll(where: { $0.id == self.currentHole.id })
+				holes.insert(hole, at: index)
+				self.scorecard = Scorecard(name: self.scorecard.name, holes: holes)
+				self.currentHole = hole
+			})
+			.store(in: &self.disposables)
 		
 		self.$currentHole
 			.sink(receiveValue: { [weak self] hole in
@@ -96,6 +104,7 @@ class RoundViewModel: ObservableObject {
 				self.strokes = hole.strokes
 			})
 			.store(in: &self.disposables)
+		
 	}
 	
 	enum ParOption: Int, CaseIterable {

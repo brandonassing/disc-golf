@@ -15,8 +15,14 @@ extension Scorecard {
 	}
 }
 
-struct Hole: Identifiable {
-	let id = UUID()
+extension Scorecard: Equatable {
+	static func == (lhs: Scorecard, rhs: Scorecard) -> Bool {
+		lhs.name == rhs.name && lhs.holes == rhs.holes
+	}
+}
+
+struct Hole: Identifiable, Equatable {
+	let id: UUID
 	let name: String
 	let par: Int
 	let strokes: Int?
