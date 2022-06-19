@@ -20,6 +20,7 @@ class RoundViewModel: ObservableObject {
 	@Published var parOption: ParOption = RoundViewModel.defaultPar
 	@Published var strokes: Int?
 	
+	// TODO: update currentHole/scorecard connection. It feels bloated
 	@Published var currentHole: Hole
 	@Published var scorecard: Scorecard
 

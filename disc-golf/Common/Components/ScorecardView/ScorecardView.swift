@@ -4,11 +4,7 @@ import SwiftUI
 struct ScorecardView: View {
 	
 	@ObservedObject var viewModel: ScorecardViewModel
-	
-	init(viewModel: ScorecardViewModel) {
-		self._viewModel = ObservedObject(wrappedValue: viewModel)
-	}
-	
+		
 	private let columns: [GridItem] = ScorecardViewModel.Cell.labelGridItems + ScorecardViewModel.Cell.holeGridItems
 	
 	var body: some View {

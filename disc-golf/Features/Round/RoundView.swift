@@ -13,12 +13,8 @@ struct RoundView: View {
 	
     var body: some View {
 		VStack {
-			let scorecardViewModel = ScorecardViewModel(scorecard: self.viewModel.scorecard)
-			ScorecardView(viewModel: scorecardViewModel)
+			ScorecardView(viewModel: ScorecardViewModel(scorecard: self.viewModel.scorecard))
 				.padding()
-				.onReceive(self.viewModel.$scorecard, perform: { scorecard in
-					scorecardViewModel.inputs.scorecardSubject.send(scorecard)
-				})
 			
 			Spacer()
 				.frame(height: 50)

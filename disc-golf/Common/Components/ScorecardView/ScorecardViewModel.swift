@@ -3,14 +3,8 @@ import Combine
 import Foundation
 
 class ScorecardViewModel: ObservableObject {
-	
-	struct Inputs {
-		let scorecardSubject: CurrentValueSubject<Scorecard, Never>
-	}
-	
-	let inputs: Inputs
-	
-	@Published var scorecard: Scorecard = Scorecard(name: nil, holes: [])
+		
+	@Published var scorecard: Scorecard
 	@Published var cells: [Cell] = []
 	
 	enum Cell {
@@ -19,17 +13,10 @@ class ScorecardViewModel: ObservableObject {
 	}
 	
 	init(scorecard: Scorecard) {
-		
-		let scorecardSubject = CurrentValueSubject<Scorecard, Never>(scorecard)
-		self.inputs = Inputs(
-			scorecardSubject: scorecardSubject
-		)
-				
-		scorecardSubject
-			.removeDuplicates()
-			.assign(to: &self.$scorecard)
+		self.scorecard = scorecard
 		
 		self.$scorecard
+			.removeDuplicates()
 			.map({ scorecard in
 				scorecard.holes.enumerated().reduce(into: [Cell](), { cells, holeInfo in
 					if holeInfo.offset % 9 == 0 {
