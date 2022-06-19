@@ -7,7 +7,17 @@ struct Scorecard {
 }
 
 extension Scorecard {
-	var total: Int {
+	var par: Int {
+		self.holes.reduce(into: 0, { count, hole in
+			count += hole.par
+		})
+	}
+	
+	var strokes: Int {
+		return self.par + self.score
+	}
+	
+	var score: Int {
 		self.holes.reduce(into: 0, { count, hole in
 			guard let strokes = hole.strokes else { return }
 			count += strokes - hole.par

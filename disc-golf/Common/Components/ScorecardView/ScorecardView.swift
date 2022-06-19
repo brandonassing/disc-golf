@@ -13,7 +13,17 @@ struct ScorecardView: View {
 				Text(name)
 					.padding()
 			}
-			Text("Total: \(self.viewModel.scorecard.total >= 0 ? "+" : "")\(self.viewModel.scorecard.total)")
+			HStack {
+				Spacer()
+				VStack(alignment: .trailing) {
+					Text("Par: \(self.viewModel.scorecard.par)")
+						.foregroundColor(.gray)
+					Text("Strokes: \(self.viewModel.scorecard.strokes)")
+						.foregroundColor(.gray)
+				}
+			}
+			
+			Text("Score: \(self.viewModel.scorecard.score >= 0 ? "+" : "")\(self.viewModel.scorecard.score)")
 			
 			LazyVGrid(columns: self.columns, alignment: .leading, spacing: 30) {
 				ForEach(self.viewModel.cells) { cell in

@@ -6,6 +6,8 @@ class RoundViewModel: ObservableObject {
 	
 	static let defaultPar = ParOption.three
 	static let defaultHoleName = "1"
+	static let maxHoles = 18
+	static let maxStrokes = 12
 	
 	struct Inputs {
 		let decreaseStrokes: PassthroughSubject<Void, Never>
@@ -67,7 +69,9 @@ class RoundViewModel: ObservableObject {
 		increaseStrokesSubject
 			.sink(receiveValue: { [weak self] _ in
 				guard let self = self else { return }
-				self.strokes = (self.strokes ?? 0) + 1
+				let newStrokes = (self.strokes ?? 0) + 1
+				guard newStrokes <= RoundViewModel.maxStrokes else { return }
+				self.strokes = newStrokes
 			})
 			.store(in: &self.disposables)
 
@@ -106,6 +110,42 @@ class RoundViewModel: ObservableObject {
 			})
 			.store(in: &self.disposables)
 		
+		previousHoleSubject
+			.map({ [weak self] _ -> Hole? in
+				guard let self = self else { return nil }
+				let currentIndex = self.scorecard.holes.firstIndex(where: { $0.id == self.currentHole.id })
+				guard let currentIndex = currentIndex, currentIndex > 0 else { return nil }
+				return self.scorecard.holes[currentIndex - 1]
+			})
+			.sink(receiveValue: { [weak self] previousHole in
+				guard let self = self, let previousHole = previousHole else { return }
+				self.currentHole = previousHole
+			})
+			.store(in: &self.disposables)
+		
+		nextHoleSubject
+			.map({ [weak self] _ -> Int? in
+				guard let self = self else { return nil }
+				return self.scorecard.holes.firstIndex(where: { $0.id == self.currentHole.id })
+			})
+			.sink(receiveValue: { [weak self] currentIndex in
+				guard
+					let self = self,
+					let currentIndex = currentIndex,
+					self.scorecard.holes.count < RoundViewModel.maxHoles
+				else { return }
+				if currentIndex >= self.scorecard.holes.count - 1 {
+					var holes = self.scorecard.holes
+					let newHole = Hole(id: UUID(), name: "\(currentIndex + 2)", par: RoundViewModel.defaultPar.rawValue, strokes: nil)
+					holes.append(newHole)
+					self.scorecard = Scorecard(name: self.scorecard.name, holes: holes)
+					self.currentHole = newHole
+				} else {
+					self.currentHole = self.scorecard.holes[currentIndex + 1]
+				}
+			})
+			.store(in: &self.disposables)
+
 	}
 	
 	enum ParOption: Int, CaseIterable {
