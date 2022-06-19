@@ -12,12 +12,9 @@ struct RoundView: View {
 	}
 	
     var body: some View {
-		VStack {
+		VStack(spacing: 50) {
 			ScorecardView(viewModel: ScorecardViewModel(scorecard: self.viewModel.scorecard))
 				.padding()
-			
-			Spacer()
-				.frame(height: 50)
 			
 			VStack {
 				VStack {
@@ -33,6 +30,7 @@ struct RoundView: View {
 				}
 				
 				Spacer()
+					.frame(height: 20)
 				
 				VStack(spacing: 10) {
 					Text("Throws")
@@ -82,6 +80,13 @@ struct RoundView: View {
 					}
 				}
 			}
+			
+			Button(action: {}) {
+				NavigationLink(destination: RoundCompletionView(scorecard: self.viewModel.scorecard)) {
+					Text("End round")
+				}
+			}
+			.buttonStyle(.bordered)
 		}
 		.padding()
 	}

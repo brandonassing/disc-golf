@@ -2,16 +2,20 @@
 import SwiftUI
 
 struct HomeView: View {
+	
     var body: some View {
 		NavigationView {
 			ScrollView {
+				Spacer()
+					.frame(height: 50)
+				
 				ForEach(Items.allCases, id: \.displayName) { item in
 					Button(action: {}) {
 						NavigationLink(destination: item.route) {
 							Text(item.displayName)
-								.padding()
 						}
 					}
+					.buttonStyle(.bordered)
 				}
 			}
 			.navigationTitle("Pocket Caddy")
