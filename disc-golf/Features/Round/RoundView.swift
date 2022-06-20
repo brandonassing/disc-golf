@@ -68,8 +68,8 @@ struct RoundView: View {
 							.multilineTextAlignment(.center)
 							.onChange(of: self.holeName, perform: { holeName in
 								// TODO: should this logic be moved to vm?
-								guard holeName.count <= 2 else {
-									self.holeName = String(holeName.prefix(2))
+								guard holeName.count <= 3 else {
+									self.holeName = String(holeName.prefix(3))
 									return
 								}
 								self.viewModel.inputs.holeName.send(holeName)

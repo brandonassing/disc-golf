@@ -19,6 +19,6 @@ struct ScorecardHoleCellView: View {
 				Text("-")
 			}
 		}
-		.frame(width: 20)
+		.frame(width: 30)
     }
 }
