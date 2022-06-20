@@ -12,15 +12,38 @@ struct ScorecardView: View {
 			if let name = self.viewModel.scorecard.name {
 				Text(name)
 					.padding()
+					.font(.headline)
 			}
+			
+			VStack {
+				if self.viewModel.scorecard.endTime != nil {
+					Text(self.viewModel.scorecard.startTime, style: .date)
+					
+					HStack {
+						Text("Round start:")
+						Text(self.viewModel.scorecard.startTime, style: .time)
+					}
+
+					HStack {
+						Text("Time elapsed:")
+						Text("\(self.viewModel.minutesElapsed) mins")
+					}
+				} else {
+					HStack {
+						Text("Round start:")
+						Text(self.viewModel.scorecard.startTime, style: .time)
+					}
+				}
+			}
+			.foregroundColor(.gray)
+
 			HStack {
 				Spacer()
 				VStack(alignment: .trailing) {
 					Text("Par: \(self.viewModel.scorecard.par)")
-						.foregroundColor(.gray)
 					Text("Strokes: \(self.viewModel.scorecard.strokes)")
-						.foregroundColor(.gray)
 				}
+				.foregroundColor(.gray)
 			}
 			
 			Text("Score: \(self.viewModel.scorecard.score >= 0 ? "+" : "")\(self.viewModel.scorecard.score)")

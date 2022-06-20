@@ -4,6 +4,8 @@ import Foundation
 struct Scorecard {
 	let name: String?
 	let holes: [Hole]
+	let startTime: Date
+	let endTime: Date?
 }
 
 extension Scorecard {

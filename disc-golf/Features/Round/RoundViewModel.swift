@@ -40,7 +40,7 @@ class RoundViewModel: ObservableObject {
 				self.strokes = firstHole.strokes
 			}
 		} else {
-			self.scorecard = Scorecard(name: nil, holes: [startingHole])
+			self.scorecard = Scorecard(name: nil, holes: [startingHole], startTime: Date(), endTime: nil)
 		}
 
 		self.currentHole = startingHole
@@ -95,7 +95,7 @@ class RoundViewModel: ObservableObject {
 				guard let index = index else { return }
 				holes.removeAll(where: { $0.id == self.currentHole.id })
 				holes.insert(hole, at: index)
-				self.scorecard = Scorecard(name: self.scorecard.name, holes: holes)
+				self.scorecard = Scorecard(name: self.scorecard.name, holes: holes, startTime: self.scorecard.startTime, endTime: nil)
 				self.currentHole = hole
 			})
 			.store(in: &self.disposables)
@@ -138,7 +138,7 @@ class RoundViewModel: ObservableObject {
 					var holes = self.scorecard.holes
 					let newHole = Hole(id: UUID(), name: "\(currentIndex + 2)", par: RoundViewModel.defaultPar.rawValue, strokes: nil)
 					holes.append(newHole)
-					self.scorecard = Scorecard(name: self.scorecard.name, holes: holes)
+					self.scorecard = Scorecard(name: self.scorecard.name, holes: holes, startTime: self.scorecard.startTime, endTime: nil)
 					self.currentHole = newHole
 				} else {
 					self.currentHole = self.scorecard.holes[currentIndex + 1]

@@ -6,7 +6,8 @@ class ScorecardViewModel: ObservableObject {
 		
 	@Published var scorecard: Scorecard
 	@Published var cells: [Cell] = []
-	
+	@Published var minutesElapsed: Int = 0
+
 	enum Cell {
 		case label(id: UUID = UUID())
 		case holeInfo(Hole)
@@ -26,6 +27,17 @@ class ScorecardViewModel: ObservableObject {
 				})
 			})
 			.assign(to: &self.$cells)
+		
+		self.$scorecard
+			.map({ scorecard in
+				guard let endTime = scorecard.endTime else {
+					return 0
+				}
+				let diffComponents = Calendar.current.dateComponents([.minute], from: scorecard.startTime, to: endTime)
+
+				return diffComponents.minute ?? 0
+			})
+			.assign(to: &self.$minutesElapsed)
 	}
 }
 

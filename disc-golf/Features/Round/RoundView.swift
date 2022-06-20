@@ -97,7 +97,8 @@ struct RoundView: View {
 				.buttonStyle(.bordered)
 			}
 			.padding()
-		
+			.navigationBarHidden(true)
+			
 		}
 	}
 }
