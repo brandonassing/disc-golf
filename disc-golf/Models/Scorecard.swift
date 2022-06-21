@@ -2,6 +2,7 @@
 import Foundation
 
 struct Scorecard {
+	let id: UUID
 	let name: String?
 	let holes: [Hole]
 	let startTime: Date

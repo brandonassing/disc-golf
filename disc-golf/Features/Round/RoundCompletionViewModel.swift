@@ -9,6 +9,7 @@ class RoundCompletionViewModel: ObservableObject {
 	init(scorecard: Scorecard) {
 		
 		self.scorecard = Scorecard(
+			id: scorecard.id,
 			name: scorecard.name,
 			holes: scorecard.holes,
 			startTime: scorecard.startTime,
