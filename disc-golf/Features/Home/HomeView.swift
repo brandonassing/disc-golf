@@ -2,41 +2,53 @@
 import SwiftUI
 
 struct HomeView: View {
+	
+	@State private var activeItem: Item?
+	
     var body: some View {
 		NavigationView {
 			ScrollView {
-				ForEach(Items.allCases, id: \.displayName) { item in
-					Button(action: {}) {
-						NavigationLink(destination: item.route) {
-							Text(item.displayName)
-								.padding()
-						}
+				Spacer()
+					.frame(height: 50)
+				
+				ForEach(Item.allCases, id: \.displayName) { item in
+					Button(action: { self.activeItem = item }) {
+						Text(item.displayName)
 					}
+					.buttonStyle(.bordered)
 				}
+				.sheet(item: self.$activeItem) { item in
+					item.route
+				}
+
 			}
 			.navigationTitle("Pocket Caddy")
 		}
 		.navigationViewStyle(.stack)
 	}
 	
-	enum Items: String, CaseIterable {
-		case scorecard
+	enum Item: String, CaseIterable {
+		case newRound
 	}
 }
 
-extension HomeView.Items: Displayable {
+extension HomeView.Item: Displayable, Identifiable {
+	
+	var id: String {
+		return self.rawValue
+	}
 	
 	var displayName: String {
 		switch self {
-		case .scorecard:
-			return "New scorecard"
+		case .newRound:
+			return "New round"
 		}
 	}
 	
 	var route: some View {
 		switch self {
-		case .scorecard:
-			return ScorecardView()
+		case .newRound:
+			return RoundView()
 		}
 	}
 
