@@ -9,7 +9,7 @@ struct RoundCompletionView: View {
 	
 
 	init(scorecard: Scorecard, dismiss: @escaping () -> ()) {
-		self._viewModel = StateObject(wrappedValue: RoundCompletionViewModel(scorecard: scorecard))
+		self._viewModel = StateObject(wrappedValue: RoundCompletionViewModel(scorecard: scorecard, dependencies: GlobalDependencyContainer.shared))
 		self.dismiss = dismiss
 	}
 	
@@ -20,7 +20,7 @@ struct RoundCompletionView: View {
 
 			Button(action: {
 				if !self.viewModel.needsName {
-					self.dismiss()
+					self.viewModel.inputs.saveRound.send()
 					return
 				}
 				self.isActive = self.viewModel.needsName
@@ -36,5 +36,9 @@ struct RoundCompletionView: View {
 
 			Spacer()
 		}
+		.onReceive(self.viewModel.$saveRoundSuccess.dropFirst(), perform: {
+			self.dismiss()
+		})
+
     }
 }

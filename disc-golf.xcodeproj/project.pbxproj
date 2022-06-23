@@ -31,6 +31,7 @@
 		5C2C43FA2864C32200FA5C77 /* CourseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43F92864C32200FA5C77 /* CourseRepository.swift */; };
 		5C2C43FC2864C35800FA5C77 /* HasCourseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43FB2864C35800FA5C77 /* HasCourseRepository.swift */; };
 		5C2C43FF2864C80800FA5C77 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43FE2864C80800FA5C77 /* GenericError.swift */; };
+		5C2C44022864CF4600FA5C77 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 5C2C44012864CF4600FA5C77 /* CombineExt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C2C44022864CF4600FA5C77 /* CombineExt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +284,9 @@
 			dependencies = (
 			);
 			name = "disc-golf";
+			packageProductDependencies = (
+				5C2C44012864CF4600FA5C77 /* CombineExt */,
+			);
 			productName = "disc-golf";
 			productReference = 5C2C43A128527C8800FA5C77 /* disc-golf.app */;
 			productType = "com.apple.product-type.application";
@@ -354,6 +359,9 @@
 				Base,
 			);
 			mainGroup = 5C2C439828527C8700FA5C77;
+			packageReferences = (
+				5C2C44002864CF4600FA5C77 /* XCRemoteSwiftPackageReference "CombineExt" */,
+			);
 			productRefGroup = 5C2C43A228527C8800FA5C77 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -739,6 +747,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C2C44002864CF4600FA5C77 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C2C44012864CF4600FA5C77 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C2C44002864CF4600FA5C77 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C2C439928527C8800FA5C77 /* Project object */;
 }
