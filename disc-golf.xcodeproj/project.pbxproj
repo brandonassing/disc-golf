@@ -24,6 +24,7 @@
 		5C2C43E92852A79500FA5C77 /* ScorecardHoleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43E82852A79500FA5C77 /* ScorecardHoleCellView.swift */; };
 		5C2C43EB285F89CB00FA5C77 /* RoundCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43EA285F89CB00FA5C77 /* RoundCompletionView.swift */; };
 		5C2C43ED2860C6F700FA5C77 /* RoundCompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43EC2860C6F700FA5C77 /* RoundCompletionViewModel.swift */; };
+		5C2C43EF2864B94A00FA5C77 /* RoundNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43EE2864B94A00FA5C77 /* RoundNameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		5C2C43E82852A79500FA5C77 /* ScorecardHoleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardHoleCellView.swift; sourceTree = "<group>"; };
 		5C2C43EA285F89CB00FA5C77 /* RoundCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCompletionView.swift; sourceTree = "<group>"; };
 		5C2C43EC2860C6F700FA5C77 /* RoundCompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCompletionViewModel.swift; sourceTree = "<group>"; };
+		5C2C43EE2864B94A00FA5C77 /* RoundNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundNameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				5C2C43DB2852931900FA5C77 /* RoundViewModel.swift */,
 				5C2C43EA285F89CB00FA5C77 /* RoundCompletionView.swift */,
 				5C2C43EC2860C6F700FA5C77 /* RoundCompletionViewModel.swift */,
+				5C2C43EE2864B94A00FA5C77 /* RoundNameView.swift */,
 			);
 			path = Round;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			files = (
 				5C2C43E42852A64C00FA5C77 /* ScorecardViewModel.swift in Sources */,
 				5C2C43CF2852819600FA5C77 /* ScorecardView.swift in Sources */,
+				5C2C43EF2864B94A00FA5C77 /* RoundNameView.swift in Sources */,
 				5C2C43D828528AA800FA5C77 /* Scorecard.swift in Sources */,
 				5C2C43ED2860C6F700FA5C77 /* RoundCompletionViewModel.swift in Sources */,
 				5C2C43EB285F89CB00FA5C77 /* RoundCompletionView.swift in Sources */,
