@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct Scorecard {
+struct Scorecard: Codable {
 	let id: UUID
 	let name: String?
 	let holes: [Hole]
@@ -34,7 +34,7 @@ extension Scorecard: Equatable {
 	}
 }
 
-struct Hole: Identifiable, Equatable {
+struct Hole: Identifiable, Equatable, Codable {
 	let id: UUID
 	let name: String
 	let par: Int

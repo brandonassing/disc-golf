@@ -1,5 +1,5 @@
 
-typealias AllDependencies = HasFileManagerService
+typealias AllDependencies = HasFileManagerService & HasCourseRepository
 
 class GlobalDependencyContainer: AllDependencies {
 	
@@ -7,6 +7,10 @@ class GlobalDependencyContainer: AllDependencies {
 	
 	lazy var fileManagerService: FileManagerService = {
 		ApplicationFileManagerService()
+	}()
+	
+	lazy var courseRepository: CourseRepository = {
+		ApplicationCourseRepository(dependencies: self)
 	}()
 	
 	private init() {}
