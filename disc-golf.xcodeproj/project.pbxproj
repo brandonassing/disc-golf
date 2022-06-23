@@ -32,6 +32,7 @@
 		5C2C43FC2864C35800FA5C77 /* HasCourseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43FB2864C35800FA5C77 /* HasCourseRepository.swift */; };
 		5C2C43FF2864C80800FA5C77 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43FE2864C80800FA5C77 /* GenericError.swift */; };
 		5C2C44022864CF4600FA5C77 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 5C2C44012864CF4600FA5C77 /* CombineExt */; };
+		5C2C44052864DB0800FA5C77 /* RoundHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		5C2C43F92864C32200FA5C77 /* CourseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseRepository.swift; sourceTree = "<group>"; };
 		5C2C43FB2864C35800FA5C77 /* HasCourseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCourseRepository.swift; sourceTree = "<group>"; };
 		5C2C43FE2864C80800FA5C77 /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
+		5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			children = (
 				5C2C43D2285281C800FA5C77 /* Home */,
 				5C2C43D1285281AD00FA5C77 /* Round */,
+				5C2C44032864DAEE00FA5C77 /* RoundHistory */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -266,6 +269,14 @@
 				5C2C43FE2864C80800FA5C77 /* GenericError.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5C2C44032864DAEE00FA5C77 /* RoundHistory */ = {
+			isa = PBXGroup;
+			children = (
+				5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */,
+			);
+			path = RoundHistory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +417,7 @@
 			files = (
 				5C2C43E42852A64C00FA5C77 /* ScorecardViewModel.swift in Sources */,
 				5C2C43FC2864C35800FA5C77 /* HasCourseRepository.swift in Sources */,
+				5C2C44052864DB0800FA5C77 /* RoundHistoryView.swift in Sources */,
 				5C2C43FA2864C32200FA5C77 /* CourseRepository.swift in Sources */,
 				5C2C43CF2852819600FA5C77 /* ScorecardView.swift in Sources */,
 				5C2C43EF2864B94A00FA5C77 /* RoundNameView.swift in Sources */,

@@ -18,7 +18,7 @@ struct HomeView: View {
 					.buttonStyle(.bordered)
 				}
 				.sheet(item: self.$activeItem) { item in
-					item.route
+					item.route()
 				}
 
 			}
@@ -29,6 +29,7 @@ struct HomeView: View {
 	
 	enum Item: String, CaseIterable {
 		case newRound
+		case roundHistory
 	}
 }
 
@@ -42,14 +43,18 @@ extension HomeView.Item: Displayable, Identifiable {
 		switch self {
 		case .newRound:
 			return "New round"
+		case .roundHistory:
+			return "Round history"
 		}
 	}
 	
-	var route: some View {
+	@ViewBuilder
+	func route() -> some View {
 		switch self {
 		case .newRound:
-			return RoundView()
+			RoundView()
+		case .roundHistory:
+			RoundHistoryView()
 		}
 	}
-
 }
