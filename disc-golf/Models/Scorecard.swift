@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct Scorecard: Codable {
+struct Scorecard: Codable, Identifiable {
 	let id: UUID
 	let name: String?
 	let holes: [Hole]

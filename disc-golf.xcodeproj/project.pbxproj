@@ -33,6 +33,8 @@
 		5C2C43FF2864C80800FA5C77 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43FE2864C80800FA5C77 /* GenericError.swift */; };
 		5C2C44022864CF4600FA5C77 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 5C2C44012864CF4600FA5C77 /* CombineExt */; };
 		5C2C44052864DB0800FA5C77 /* RoundHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */; };
+		5C2C44072865F8BF00FA5C77 /* RoundHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C44062865F8BF00FA5C77 /* RoundHistoryViewModel.swift */; };
+		5C2C44092865FBC000FA5C77 /* ScorecardMinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C44082865FBC000FA5C77 /* ScorecardMinView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		5C2C43FB2864C35800FA5C77 /* HasCourseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCourseRepository.swift; sourceTree = "<group>"; };
 		5C2C43FE2864C80800FA5C77 /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
 		5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundHistoryView.swift; sourceTree = "<group>"; };
+		5C2C44062865F8BF00FA5C77 /* RoundHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundHistoryViewModel.swift; sourceTree = "<group>"; };
+		5C2C44082865FBC000FA5C77 /* ScorecardMinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardMinView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +235,7 @@
 				5C2C43E32852A64C00FA5C77 /* ScorecardViewModel.swift */,
 				5C2C43E62852A78300FA5C77 /* ScorecardLabelCellView.swift */,
 				5C2C43E82852A79500FA5C77 /* ScorecardHoleCellView.swift */,
+				5C2C44082865FBC000FA5C77 /* ScorecardMinView.swift */,
 			);
 			path = ScorecardView;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */,
+				5C2C44062865F8BF00FA5C77 /* RoundHistoryViewModel.swift */,
 			);
 			path = RoundHistory;
 			sourceTree = "<group>";
@@ -424,12 +430,14 @@
 				5C2C43D828528AA800FA5C77 /* Scorecard.swift in Sources */,
 				5C2C43ED2860C6F700FA5C77 /* RoundCompletionViewModel.swift in Sources */,
 				5C2C43FF2864C80800FA5C77 /* GenericError.swift in Sources */,
+				5C2C44072865F8BF00FA5C77 /* RoundHistoryViewModel.swift in Sources */,
 				5C2C43F42864C0E500FA5C77 /* GlobalDependencyContainer.swift in Sources */,
 				5C2C43EB285F89CB00FA5C77 /* RoundCompletionView.swift in Sources */,
 				5C2C43E92852A79500FA5C77 /* ScorecardHoleCellView.swift in Sources */,
 				5C2C43DA28528EB400FA5C77 /* RoundView.swift in Sources */,
 				5C2C43DC2852931900FA5C77 /* RoundViewModel.swift in Sources */,
 				5C2C43E72852A78300FA5C77 /* ScorecardLabelCellView.swift in Sources */,
+				5C2C44092865FBC000FA5C77 /* ScorecardMinView.swift in Sources */,
 				5C2C43A728527C8800FA5C77 /* HomeView.swift in Sources */,
 				5C2C43D5285284A800FA5C77 /* Displayable.swift in Sources */,
 				5C2C43F62864C11B00FA5C77 /* HasFileManagerService.swift in Sources */,
