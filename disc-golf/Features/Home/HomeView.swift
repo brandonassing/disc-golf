@@ -12,8 +12,18 @@ struct HomeView: View {
 					.frame(height: 50)
 				
 				ForEach(Item.allCases, id: \.displayName) { item in
-					Button(action: { self.activeItem = item }) {
-						Text(item.displayName)
+					Button(action: {
+						if item.isModal {
+							self.activeItem = item
+						}
+					}) {
+						if !item.isModal {
+							NavigationLink(destination: item.route()) {
+								Text(item.displayName)
+							}
+						} else {
+							Text(item.displayName)
+						}
 					}
 					.buttonStyle(.bordered)
 				}
@@ -45,6 +55,15 @@ extension HomeView.Item: Displayable, Identifiable {
 			return "New round"
 		case .roundHistory:
 			return "Round history"
+		}
+	}
+	
+	var isModal: Bool {
+		switch self {
+		case .newRound:
+			return true
+		case .roundHistory:
+			return false
 		}
 	}
 	
