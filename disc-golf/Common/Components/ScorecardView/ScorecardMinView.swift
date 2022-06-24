@@ -12,12 +12,11 @@ struct ScorecardMinView: View {
 			
 			HStack {
 				Text(self.viewModel.scorecard.startTime, style: .date)
-				
-				Text("|")
-				
-				Text("Score: \(self.viewModel.scorecard.score >= 0 ? "+" : "")\(self.viewModel.scorecard.score)")
-					.foregroundColor(.black)
 
+				Text("|")
+
+				Text("Score: \(self.viewModel.scorecard.score >= 0 ? "+" : "")\(self.viewModel.scorecard.score)")
+					.foregroundColor(.primary)
 			}
 			.foregroundColor(.gray)
 		}

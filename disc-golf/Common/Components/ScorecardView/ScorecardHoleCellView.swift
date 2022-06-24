@@ -12,7 +12,7 @@ struct ScorecardHoleCellView: View {
 			Text("\(self.hole.par)")
 			
 			if let strokes = self.hole.strokes {
-				let scoreColour = strokes == self.hole.par ? Color.black : (strokes > self.hole.par ? Color.red : Color.blue)
+				let scoreColour = strokes == self.hole.par ? Color.primary : (strokes > self.hole.par ? Color.red : Color.blue)
 				Text("\(strokes)")
 					.foregroundColor(scoreColour)
 			} else {

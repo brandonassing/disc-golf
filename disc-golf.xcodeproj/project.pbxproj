@@ -55,7 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C2C43A128527C8800FA5C77 /* disc-golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "disc-golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C2C43A128527C8800FA5C77 /* Pocket Caddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Caddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2C43A428527C8800FA5C77 /* disc_golfApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = disc_golfApp.swift; sourceTree = "<group>"; };
 		5C2C43A628527C8800FA5C77 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5C2C43A828527C9900FA5C77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		5C2C43A228527C8800FA5C77 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C2C43A128527C8800FA5C77 /* disc-golf.app */,
+				5C2C43A128527C8800FA5C77 /* Pocket Caddy.app */,
 				5C2C43B128527C9A00FA5C77 /* disc-golfTests.xctest */,
 				5C2C43BB28527C9A00FA5C77 /* disc-golfUITests.xctest */,
 			);
@@ -288,9 +288,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C2C43A028527C8800FA5C77 /* disc-golf */ = {
+		5C2C43A028527C8800FA5C77 /* Pocket Caddy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C2C43C528527C9A00FA5C77 /* Build configuration list for PBXNativeTarget "disc-golf" */;
+			buildConfigurationList = 5C2C43C528527C9A00FA5C77 /* Build configuration list for PBXNativeTarget "Pocket Caddy" */;
 			buildPhases = (
 				5C2C439D28527C8800FA5C77 /* Sources */,
 				5C2C439E28527C8800FA5C77 /* Frameworks */,
@@ -300,12 +300,12 @@
 			);
 			dependencies = (
 			);
-			name = "disc-golf";
+			name = "Pocket Caddy";
 			packageProductDependencies = (
 				5C2C44012864CF4600FA5C77 /* CombineExt */,
 			);
 			productName = "disc-golf";
-			productReference = 5C2C43A128527C8800FA5C77 /* disc-golf.app */;
+			productReference = 5C2C43A128527C8800FA5C77 /* Pocket Caddy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5C2C43B028527C9A00FA5C77 /* disc-golfTests */ = {
@@ -383,7 +383,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C2C43A028527C8800FA5C77 /* disc-golf */,
+				5C2C43A028527C8800FA5C77 /* Pocket Caddy */,
 				5C2C43B028527C9A00FA5C77 /* disc-golfTests */,
 				5C2C43BA28527C9A00FA5C77 /* disc-golfUITests */,
 			);
@@ -468,12 +468,12 @@
 /* Begin PBXTargetDependency section */
 		5C2C43B328527C9A00FA5C77 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C2C43A028527C8800FA5C77 /* disc-golf */;
+			target = 5C2C43A028527C8800FA5C77 /* Pocket Caddy */;
 			targetProxy = 5C2C43B228527C9A00FA5C77 /* PBXContainerItemProxy */;
 		};
 		5C2C43BD28527C9A00FA5C77 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C2C43A028527C8800FA5C77 /* disc-golf */;
+			target = 5C2C43A028527C8800FA5C77 /* Pocket Caddy */;
 			targetProxy = 5C2C43BC28527C9A00FA5C77 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -739,7 +739,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C2C43C528527C9A00FA5C77 /* Build configuration list for PBXNativeTarget "disc-golf" */ = {
+		5C2C43C528527C9A00FA5C77 /* Build configuration list for PBXNativeTarget "Pocket Caddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C2C43C628527C9A00FA5C77 /* Debug */,
