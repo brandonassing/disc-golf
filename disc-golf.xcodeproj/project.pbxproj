@@ -8,33 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5C2C43A528527C8800FA5C77 /* disc_golfApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43A428527C8800FA5C77 /* disc_golfApp.swift */; };
-		5C2C43A728527C8800FA5C77 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43A628527C8800FA5C77 /* HomeView.swift */; };
+		5C2C43A728527C8800FA5C77 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43A628527C8800FA5C77 /* ContentView.swift */; };
 		5C2C43A928527C9900FA5C77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C43A828527C9900FA5C77 /* Assets.xcassets */; };
 		5C2C43AC28527C9900FA5C77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C43AB28527C9900FA5C77 /* Preview Assets.xcassets */; };
 		5C2C43B628527C9A00FA5C77 /* disc_golfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43B528527C9A00FA5C77 /* disc_golfTests.swift */; };
 		5C2C43C028527C9A00FA5C77 /* disc_golfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43BF28527C9A00FA5C77 /* disc_golfUITests.swift */; };
 		5C2C43C228527C9A00FA5C77 /* disc_golfUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43C128527C9A00FA5C77 /* disc_golfUITestsLaunchTests.swift */; };
-		5C2C43CF2852819600FA5C77 /* ScorecardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43CE2852819600FA5C77 /* ScorecardView.swift */; };
-		5C2C43D5285284A800FA5C77 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43D4285284A800FA5C77 /* Displayable.swift */; };
-		5C2C43D828528AA800FA5C77 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43D728528AA800FA5C77 /* Scorecard.swift */; };
-		5C2C43DA28528EB400FA5C77 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43D928528EB400FA5C77 /* RoundView.swift */; };
-		5C2C43DC2852931900FA5C77 /* RoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43DB2852931900FA5C77 /* RoundViewModel.swift */; };
-		5C2C43E42852A64C00FA5C77 /* ScorecardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43E32852A64C00FA5C77 /* ScorecardViewModel.swift */; };
-		5C2C43E72852A78300FA5C77 /* ScorecardLabelCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43E62852A78300FA5C77 /* ScorecardLabelCellView.swift */; };
-		5C2C43E92852A79500FA5C77 /* ScorecardHoleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43E82852A79500FA5C77 /* ScorecardHoleCellView.swift */; };
-		5C2C43EB285F89CB00FA5C77 /* RoundCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43EA285F89CB00FA5C77 /* RoundCompletionView.swift */; };
-		5C2C43ED2860C6F700FA5C77 /* RoundCompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43EC2860C6F700FA5C77 /* RoundCompletionViewModel.swift */; };
-		5C2C43EF2864B94A00FA5C77 /* RoundNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43EE2864B94A00FA5C77 /* RoundNameView.swift */; };
-		5C2C43F42864C0E500FA5C77 /* GlobalDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43F32864C0E500FA5C77 /* GlobalDependencyContainer.swift */; };
-		5C2C43F62864C11B00FA5C77 /* HasFileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43F52864C11B00FA5C77 /* HasFileManagerService.swift */; };
-		5C2C43F82864C15200FA5C77 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43F72864C15200FA5C77 /* FileManagerService.swift */; };
-		5C2C43FA2864C32200FA5C77 /* CourseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43F92864C32200FA5C77 /* CourseRepository.swift */; };
-		5C2C43FC2864C35800FA5C77 /* HasCourseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43FB2864C35800FA5C77 /* HasCourseRepository.swift */; };
-		5C2C43FF2864C80800FA5C77 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C43FE2864C80800FA5C77 /* GenericError.swift */; };
-		5C2C44022864CF4600FA5C77 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 5C2C44012864CF4600FA5C77 /* CombineExt */; };
-		5C2C44052864DB0800FA5C77 /* RoundHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */; };
-		5C2C44072865F8BF00FA5C77 /* RoundHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C44062865F8BF00FA5C77 /* RoundHistoryViewModel.swift */; };
-		5C2C44092865FBC000FA5C77 /* ScorecardMinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C44082865FBC000FA5C77 /* ScorecardMinView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,9 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C2C43A128527C8800FA5C77 /* Pocket Caddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Caddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C2C43A128527C8800FA5C77 /* disc-golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "disc-golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2C43A428527C8800FA5C77 /* disc_golfApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = disc_golfApp.swift; sourceTree = "<group>"; };
-		5C2C43A628527C8800FA5C77 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5C2C43A628527C8800FA5C77 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5C2C43A828527C9900FA5C77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C2C43AB28527C9900FA5C77 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5C2C43B128527C9A00FA5C77 /* disc-golfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "disc-golfTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,26 +44,6 @@
 		5C2C43BB28527C9A00FA5C77 /* disc-golfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "disc-golfUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2C43BF28527C9A00FA5C77 /* disc_golfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = disc_golfUITests.swift; sourceTree = "<group>"; };
 		5C2C43C128527C9A00FA5C77 /* disc_golfUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = disc_golfUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		5C2C43CE2852819600FA5C77 /* ScorecardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardView.swift; sourceTree = "<group>"; };
-		5C2C43D4285284A800FA5C77 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
-		5C2C43D728528AA800FA5C77 /* Scorecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
-		5C2C43D928528EB400FA5C77 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
-		5C2C43DB2852931900FA5C77 /* RoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundViewModel.swift; sourceTree = "<group>"; };
-		5C2C43E32852A64C00FA5C77 /* ScorecardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardViewModel.swift; sourceTree = "<group>"; };
-		5C2C43E62852A78300FA5C77 /* ScorecardLabelCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardLabelCellView.swift; sourceTree = "<group>"; };
-		5C2C43E82852A79500FA5C77 /* ScorecardHoleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardHoleCellView.swift; sourceTree = "<group>"; };
-		5C2C43EA285F89CB00FA5C77 /* RoundCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCompletionView.swift; sourceTree = "<group>"; };
-		5C2C43EC2860C6F700FA5C77 /* RoundCompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCompletionViewModel.swift; sourceTree = "<group>"; };
-		5C2C43EE2864B94A00FA5C77 /* RoundNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundNameView.swift; sourceTree = "<group>"; };
-		5C2C43F32864C0E500FA5C77 /* GlobalDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDependencyContainer.swift; sourceTree = "<group>"; };
-		5C2C43F52864C11B00FA5C77 /* HasFileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasFileManagerService.swift; sourceTree = "<group>"; };
-		5C2C43F72864C15200FA5C77 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
-		5C2C43F92864C32200FA5C77 /* CourseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseRepository.swift; sourceTree = "<group>"; };
-		5C2C43FB2864C35800FA5C77 /* HasCourseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCourseRepository.swift; sourceTree = "<group>"; };
-		5C2C43FE2864C80800FA5C77 /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
-		5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundHistoryView.swift; sourceTree = "<group>"; };
-		5C2C44062865F8BF00FA5C77 /* RoundHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundHistoryViewModel.swift; sourceTree = "<group>"; };
-		5C2C44082865FBC000FA5C77 /* ScorecardMinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardMinView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +51,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C2C44022864CF4600FA5C77 /* CombineExt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +84,7 @@
 		5C2C43A228527C8800FA5C77 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C2C43A128527C8800FA5C77 /* Pocket Caddy.app */,
+				5C2C43A128527C8800FA5C77 /* disc-golf.app */,
 				5C2C43B128527C9A00FA5C77 /* disc-golfTests.xctest */,
 				5C2C43BB28527C9A00FA5C77 /* disc-golfUITests.xctest */,
 			);
@@ -136,11 +94,8 @@
 		5C2C43A328527C8800FA5C77 /* disc-golf */ = {
 			isa = PBXGroup;
 			children = (
-				5C2C43F02864C0C300FA5C77 /* Dependencies */,
-				5C2C43D628528A8800FA5C77 /* Models */,
-				5C2C43D32852849200FA5C77 /* Common */,
-				5C2C43D0285281A600FA5C77 /* Features */,
 				5C2C43A428527C8800FA5C77 /* disc_golfApp.swift */,
+				5C2C43A628527C8800FA5C77 /* ContentView.swift */,
 				5C2C43A828527C9900FA5C77 /* Assets.xcassets */,
 				5C2C43AA28527C9900FA5C77 /* Preview Content */,
 			);
@@ -172,125 +127,12 @@
 			path = "disc-golfUITests";
 			sourceTree = "<group>";
 		};
-		5C2C43D0285281A600FA5C77 /* Features */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43D2285281C800FA5C77 /* Home */,
-				5C2C43D1285281AD00FA5C77 /* Round */,
-				5C2C44032864DAEE00FA5C77 /* RoundHistory */,
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
-		5C2C43D1285281AD00FA5C77 /* Round */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43D928528EB400FA5C77 /* RoundView.swift */,
-				5C2C43DB2852931900FA5C77 /* RoundViewModel.swift */,
-				5C2C43EA285F89CB00FA5C77 /* RoundCompletionView.swift */,
-				5C2C43EC2860C6F700FA5C77 /* RoundCompletionViewModel.swift */,
-				5C2C43EE2864B94A00FA5C77 /* RoundNameView.swift */,
-			);
-			path = Round;
-			sourceTree = "<group>";
-		};
-		5C2C43D2285281C800FA5C77 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43A628527C8800FA5C77 /* HomeView.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		5C2C43D32852849200FA5C77 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43FD2864C7F400FA5C77 /* Utilities */,
-				5C2C43DD285295F400FA5C77 /* Components */,
-				5C2C43D4285284A800FA5C77 /* Displayable.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		5C2C43D628528A8800FA5C77 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43D728528AA800FA5C77 /* Scorecard.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		5C2C43DD285295F400FA5C77 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43E52852A65500FA5C77 /* ScorecardView */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		5C2C43E52852A65500FA5C77 /* ScorecardView */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43CE2852819600FA5C77 /* ScorecardView.swift */,
-				5C2C43E32852A64C00FA5C77 /* ScorecardViewModel.swift */,
-				5C2C43E62852A78300FA5C77 /* ScorecardLabelCellView.swift */,
-				5C2C43E82852A79500FA5C77 /* ScorecardHoleCellView.swift */,
-				5C2C44082865FBC000FA5C77 /* ScorecardMinView.swift */,
-			);
-			path = ScorecardView;
-			sourceTree = "<group>";
-		};
-		5C2C43F02864C0C300FA5C77 /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43F22864C0D300FA5C77 /* Repositories */,
-				5C2C43F12864C0CB00FA5C77 /* Services */,
-				5C2C43F32864C0E500FA5C77 /* GlobalDependencyContainer.swift */,
-				5C2C43F52864C11B00FA5C77 /* HasFileManagerService.swift */,
-				5C2C43FB2864C35800FA5C77 /* HasCourseRepository.swift */,
-			);
-			path = Dependencies;
-			sourceTree = "<group>";
-		};
-		5C2C43F12864C0CB00FA5C77 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43F72864C15200FA5C77 /* FileManagerService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		5C2C43F22864C0D300FA5C77 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43F92864C32200FA5C77 /* CourseRepository.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		5C2C43FD2864C7F400FA5C77 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C43FE2864C80800FA5C77 /* GenericError.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		5C2C44032864DAEE00FA5C77 /* RoundHistory */ = {
-			isa = PBXGroup;
-			children = (
-				5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */,
-				5C2C44062865F8BF00FA5C77 /* RoundHistoryViewModel.swift */,
-			);
-			path = RoundHistory;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C2C43A028527C8800FA5C77 /* Pocket Caddy */ = {
+		5C2C43A028527C8800FA5C77 /* disc-golf */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C2C43C528527C9A00FA5C77 /* Build configuration list for PBXNativeTarget "Pocket Caddy" */;
+			buildConfigurationList = 5C2C43C528527C9A00FA5C77 /* Build configuration list for PBXNativeTarget "disc-golf" */;
 			buildPhases = (
 				5C2C439D28527C8800FA5C77 /* Sources */,
 				5C2C439E28527C8800FA5C77 /* Frameworks */,
@@ -300,12 +142,9 @@
 			);
 			dependencies = (
 			);
-			name = "Pocket Caddy";
-			packageProductDependencies = (
-				5C2C44012864CF4600FA5C77 /* CombineExt */,
-			);
+			name = "disc-golf";
 			productName = "disc-golf";
-			productReference = 5C2C43A128527C8800FA5C77 /* Pocket Caddy.app */;
+			productReference = 5C2C43A128527C8800FA5C77 /* disc-golf.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5C2C43B028527C9A00FA5C77 /* disc-golfTests */ = {
@@ -376,14 +215,11 @@
 				Base,
 			);
 			mainGroup = 5C2C439828527C8700FA5C77;
-			packageReferences = (
-				5C2C44002864CF4600FA5C77 /* XCRemoteSwiftPackageReference "CombineExt" */,
-			);
 			productRefGroup = 5C2C43A228527C8800FA5C77 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C2C43A028527C8800FA5C77 /* Pocket Caddy */,
+				5C2C43A028527C8800FA5C77 /* disc-golf */,
 				5C2C43B028527C9A00FA5C77 /* disc-golfTests */,
 				5C2C43BA28527C9A00FA5C77 /* disc-golfUITests */,
 			);
@@ -421,28 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C2C43E42852A64C00FA5C77 /* ScorecardViewModel.swift in Sources */,
-				5C2C43FC2864C35800FA5C77 /* HasCourseRepository.swift in Sources */,
-				5C2C44052864DB0800FA5C77 /* RoundHistoryView.swift in Sources */,
-				5C2C43FA2864C32200FA5C77 /* CourseRepository.swift in Sources */,
-				5C2C43CF2852819600FA5C77 /* ScorecardView.swift in Sources */,
-				5C2C43EF2864B94A00FA5C77 /* RoundNameView.swift in Sources */,
-				5C2C43D828528AA800FA5C77 /* Scorecard.swift in Sources */,
-				5C2C43ED2860C6F700FA5C77 /* RoundCompletionViewModel.swift in Sources */,
-				5C2C43FF2864C80800FA5C77 /* GenericError.swift in Sources */,
-				5C2C44072865F8BF00FA5C77 /* RoundHistoryViewModel.swift in Sources */,
-				5C2C43F42864C0E500FA5C77 /* GlobalDependencyContainer.swift in Sources */,
-				5C2C43EB285F89CB00FA5C77 /* RoundCompletionView.swift in Sources */,
-				5C2C43E92852A79500FA5C77 /* ScorecardHoleCellView.swift in Sources */,
-				5C2C43DA28528EB400FA5C77 /* RoundView.swift in Sources */,
-				5C2C43DC2852931900FA5C77 /* RoundViewModel.swift in Sources */,
-				5C2C43E72852A78300FA5C77 /* ScorecardLabelCellView.swift in Sources */,
-				5C2C44092865FBC000FA5C77 /* ScorecardMinView.swift in Sources */,
-				5C2C43A728527C8800FA5C77 /* HomeView.swift in Sources */,
-				5C2C43D5285284A800FA5C77 /* Displayable.swift in Sources */,
-				5C2C43F62864C11B00FA5C77 /* HasFileManagerService.swift in Sources */,
+				5C2C43A728527C8800FA5C77 /* ContentView.swift in Sources */,
 				5C2C43A528527C8800FA5C77 /* disc_golfApp.swift in Sources */,
-				5C2C43F82864C15200FA5C77 /* FileManagerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,12 +284,12 @@
 /* Begin PBXTargetDependency section */
 		5C2C43B328527C9A00FA5C77 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C2C43A028527C8800FA5C77 /* Pocket Caddy */;
+			target = 5C2C43A028527C8800FA5C77 /* disc-golf */;
 			targetProxy = 5C2C43B228527C9A00FA5C77 /* PBXContainerItemProxy */;
 		};
 		5C2C43BD28527C9A00FA5C77 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C2C43A028527C8800FA5C77 /* Pocket Caddy */;
+			target = 5C2C43A028527C8800FA5C77 /* disc-golf */;
 			targetProxy = 5C2C43BC28527C9A00FA5C77 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -739,7 +555,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C2C43C528527C9A00FA5C77 /* Build configuration list for PBXNativeTarget "Pocket Caddy" */ = {
+		5C2C43C528527C9A00FA5C77 /* Build configuration list for PBXNativeTarget "disc-golf" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C2C43C628527C9A00FA5C77 /* Debug */,
@@ -767,25 +583,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5C2C44002864CF4600FA5C77 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5C2C44012864CF4600FA5C77 /* CombineExt */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5C2C44002864CF4600FA5C77 /* XCRemoteSwiftPackageReference "CombineExt" */;
-			productName = CombineExt;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C2C439928527C8800FA5C77 /* Project object */;
 }
