@@ -12,13 +12,23 @@ struct HomeView: View {
 					.frame(height: 50)
 				
 				ForEach(Item.allCases, id: \.displayName) { item in
-					Button(action: { self.activeItem = item }) {
-						Text(item.displayName)
+					Button(action: {
+						if item.isModal {
+							self.activeItem = item
+						}
+					}) {
+						if !item.isModal {
+							NavigationLink(destination: item.route()) {
+								Text(item.displayName)
+							}
+						} else {
+							Text(item.displayName)
+						}
 					}
 					.buttonStyle(.bordered)
 				}
 				.sheet(item: self.$activeItem) { item in
-					item.route
+					item.route()
 				}
 
 			}
@@ -29,6 +39,7 @@ struct HomeView: View {
 	
 	enum Item: String, CaseIterable {
 		case newRound
+		case roundHistory
 	}
 }
 
@@ -42,14 +53,27 @@ extension HomeView.Item: Displayable, Identifiable {
 		switch self {
 		case .newRound:
 			return "New round"
+		case .roundHistory:
+			return "Round history"
 		}
 	}
 	
-	var route: some View {
+	var isModal: Bool {
 		switch self {
 		case .newRound:
-			return RoundView()
+			return true
+		case .roundHistory:
+			return false
 		}
 	}
-
+	
+	@ViewBuilder
+	func route() -> some View {
+		switch self {
+		case .newRound:
+			RoundView()
+		case .roundHistory:
+			RoundHistoryView()
+		}
+	}
 }
