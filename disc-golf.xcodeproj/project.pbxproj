@@ -35,6 +35,7 @@
 		5C2C44052864DB0800FA5C77 /* RoundHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */; };
 		5C2C44072865F8BF00FA5C77 /* RoundHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C44062865F8BF00FA5C77 /* RoundHistoryViewModel.swift */; };
 		5C2C44092865FBC000FA5C77 /* ScorecardMinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C44082865FBC000FA5C77 /* ScorecardMinView.swift */; };
+		5CBC47EA28825DA800097E33 /* Collection+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBC47E928825DA800097E33 /* Collection+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		5C2C44042864DB0800FA5C77 /* RoundHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundHistoryView.swift; sourceTree = "<group>"; };
 		5C2C44062865F8BF00FA5C77 /* RoundHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundHistoryViewModel.swift; sourceTree = "<group>"; };
 		5C2C44082865FBC000FA5C77 /* ScorecardMinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardMinView.swift; sourceTree = "<group>"; };
+		5CBC47E928825DA800097E33 /* Collection+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utilities.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				5C2C43FE2864C80800FA5C77 /* GenericError.swift */,
+				5CBC47E928825DA800097E33 /* Collection+Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				5C2C43EF2864B94A00FA5C77 /* RoundNameView.swift in Sources */,
 				5C2C43D828528AA800FA5C77 /* Scorecard.swift in Sources */,
 				5C2C43ED2860C6F700FA5C77 /* RoundCompletionViewModel.swift in Sources */,
+				5CBC47EA28825DA800097E33 /* Collection+Utilities.swift in Sources */,
 				5C2C43FF2864C80800FA5C77 /* GenericError.swift in Sources */,
 				5C2C44072865F8BF00FA5C77 /* RoundHistoryViewModel.swift in Sources */,
 				5C2C43F42864C0E500FA5C77 /* GlobalDependencyContainer.swift in Sources */,

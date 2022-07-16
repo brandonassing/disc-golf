@@ -34,7 +34,7 @@ class RoundHistoryViewModel: ObservableObject {
 		deleteRoundSubject
 			.map({ [weak self] indexSet -> UUID? in
 				guard let self = self, let index = indexSet.first else { return nil }
-				return self.scorecards[index].id // TODO: do this safer
+				return self.scorecards.item(at: index)?.id
 			})
 			.flatMapLatest({ id -> AnyPublisher<Error?, Never> in
 				guard let id = id else {
