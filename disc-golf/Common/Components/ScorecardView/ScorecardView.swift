@@ -53,8 +53,8 @@ struct ScorecardView: View {
 					switch cell {
 					case .label:
 						ScorecardLabelCellView()
-					case .holeInfo(let hole):
-						ScorecardHoleCellView(hole: hole)
+					case .holeInfo(let hole, let isCurrent):
+						ScorecardHoleCellView(hole: hole, isCurrent: isCurrent)
 					}
 				}
 			}

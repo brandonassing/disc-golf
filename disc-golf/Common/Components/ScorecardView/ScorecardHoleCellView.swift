@@ -3,11 +3,12 @@ import SwiftUI
 
 struct ScorecardHoleCellView: View {
 	let hole: Hole
+	let isCurrent: Bool?
 	
     var body: some View {
 		VStack {
 			Text("\(self.hole.name)")
-				.foregroundColor(.gray)
+				.foregroundColor((self.isCurrent ?? false) ? .green : .gray)
 				.lineLimit(1)
 			Text("\(self.hole.par)")
 			
