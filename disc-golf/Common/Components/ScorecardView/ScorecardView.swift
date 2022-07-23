@@ -35,7 +35,7 @@ struct ScorecardView: View {
 					}
 				}
 			}
-			.foregroundColor(.gray)
+			.foregroundColor(.secondary)
 
 			HStack {
 				Spacer()
@@ -43,12 +43,12 @@ struct ScorecardView: View {
 					Text("Par: \(self.viewModel.scorecard.par)")
 					Text("Strokes: \(self.viewModel.scorecard.strokes)")
 				}
-				.foregroundColor(.gray)
+				.foregroundColor(.secondary)
 			}
 			
 			Text("Score: \(self.viewModel.scorecard.score >= 0 ? "+" : "")\(self.viewModel.scorecard.score)")
 			
-			LazyVGrid(columns: self.columns, alignment: .leading, spacing: 30) {
+			LazyVGrid(columns: self.columns, alignment: .leading, spacing: 20) {
 				ForEach(self.viewModel.cells) { cell in
 					switch cell {
 					case .label:

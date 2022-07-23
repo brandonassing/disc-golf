@@ -18,7 +18,7 @@ struct ScorecardMinView: View {
 				Text("Score: \(self.viewModel.scorecard.score >= 0 ? "+" : "")\(self.viewModel.scorecard.score)")
 					.foregroundColor(.primary)
 			}
-			.foregroundColor(.gray)
+			.foregroundColor(.secondary)
 		}
 	}
 }
