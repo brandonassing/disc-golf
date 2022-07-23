@@ -16,7 +16,7 @@ struct RoundView: View {
     var body: some View {
 		NavigationView {
 			VStack(spacing: 50) {
-				ScorecardView(viewModel: ScorecardViewModel(scorecard: self.viewModel.scorecard))
+				ScorecardView(viewModel: ScorecardViewModel(scorecard: self.viewModel.scorecard, currentHole: self.viewModel.currentHole))
 					.padding()
 				
 				VStack {

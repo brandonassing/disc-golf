@@ -2,12 +2,15 @@
 import SwiftUI
 
 struct ScorecardHoleCellView: View {
+	@Environment(\.colorScheme) private var colorScheme
+
 	let hole: Hole
+	let isCurrent: Bool?
 	
     var body: some View {
 		VStack {
 			Text("\(self.hole.name)")
-				.foregroundColor(.gray)
+				.foregroundColor(.secondary)
 				.lineLimit(1)
 			Text("\(self.hole.par)")
 			
@@ -19,6 +22,9 @@ struct ScorecardHoleCellView: View {
 				Text("-")
 			}
 		}
+		.padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
 		.frame(width: 30)
+		.background((self.isCurrent ?? false) ? StyleGuide.Colour.selected(forColorScheme: self.colorScheme) : .clear)
+		.cornerRadius(8)
     }
 }
