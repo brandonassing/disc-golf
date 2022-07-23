@@ -16,6 +16,9 @@ struct RoundHistoryView: View {
 						self.selectedRound = scorecard
 					}
 			}
+			.onDelete(perform: { indexSet in
+				self.viewModel.inputs.deleteRound.send(indexSet)
+			})
 		}
 		.onAppear(perform: self.viewModel.inputs.loadRounds.send)
 		.overlay {

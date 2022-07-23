@@ -10,10 +10,10 @@ class ScorecardViewModel: ObservableObject {
 
 	enum Cell {
 		case label(id: UUID = UUID())
-		case holeInfo(Hole)
+		case holeInfo(Hole, isCurrent: Bool?)
 	}
 	
-	init(scorecard: Scorecard) {
+	init(scorecard: Scorecard, currentHole: Hole? = nil) {
 		self.scorecard = scorecard
 		
 		self.$scorecard
@@ -23,7 +23,7 @@ class ScorecardViewModel: ObservableObject {
 					if holeInfo.offset % 9 == 0 {
 						cells.append(.label())
 					}
-					cells.append(.holeInfo(holeInfo.element))
+					cells.append(.holeInfo(holeInfo.element, isCurrent: holeInfo.element.id == currentHole?.id))
 				})
 			})
 			.assign(to: &self.$cells)
@@ -46,7 +46,7 @@ extension ScorecardViewModel.Cell: Identifiable {
 		switch self {
 		case .label(let id):
 			return id
-		case .holeInfo(let hole):
+		case .holeInfo(let hole, _):
 			return hole.id
 		}
 	}
