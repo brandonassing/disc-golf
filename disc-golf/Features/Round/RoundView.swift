@@ -4,6 +4,7 @@ import SwiftUI
 struct RoundView: View {
 	
 	@State private var holeName = RoundViewModel.defaultHoleName
+	@State private var needsHoleName = false
 	
 	@StateObject private var viewModel: RoundViewModel
 	
@@ -63,17 +64,18 @@ struct RoundView: View {
 						Button(action: self.viewModel.inputs.previousHole.send) {
 							Image(systemName: "chevron.left")
 						}
+						.disabled(self.viewModel.isOnFirstHole || self.needsHoleName)
 						
-						// TODO: prevent empty string. Maybe just disable next/back button? This would allow user to completely change a hole name (ie: change "1" to "2")
 						TextField("Hole", text: self.$holeName)
 							.frame(width: 50)
 							.multilineTextAlignment(.center)
 							.onChange(of: self.holeName, perform: { holeName in
-								// TODO: should this logic be moved to vm?
+								// TODO: should all this onChange() logic be moved to vm?
 								guard holeName.count <= 3 else {
 									self.holeName = String(holeName.prefix(3))
 									return
 								}
+								self.needsHoleName = self.holeName.isEmpty
 								self.viewModel.inputs.holeName.send(holeName)
 							})
 							.onReceive(self.viewModel.$currentHole, perform: { currentHole in
@@ -83,6 +85,7 @@ struct RoundView: View {
 						Button(action: self.viewModel.inputs.nextHole.send) {
 							Image(systemName: "chevron.right")
 						}
+						.disabled(self.viewModel.isOnLastHole || self.needsHoleName)
 					}
 				}
 				
@@ -97,6 +100,7 @@ struct RoundView: View {
 					}
 				}
 				.buttonStyle(.bordered)
+				.disabled(self.needsHoleName)
 			}
 			.padding()
 			.navigationBarHidden(true)

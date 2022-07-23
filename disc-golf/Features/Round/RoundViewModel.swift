@@ -28,6 +28,8 @@ class RoundViewModel: ObservableObject {
 	
 	@Published var isOnFirstThrow: Bool = true
 	@Published var isOnLastThrow: Bool = false
+	@Published var isOnFirstHole: Bool = true
+	@Published var isOnLastHole: Bool = false
 
 	private var disposables = Set<AnyCancellable>()
 	
@@ -158,6 +160,23 @@ class RoundViewModel: ObservableObject {
 					self.currentHole = newHole
 				} else {
 					self.currentHole = self.scorecard.holes[currentIndex + 1]
+				}
+			})
+			.store(in: &self.disposables)
+		
+		Publishers.CombineLatest(self.$currentHole, self.$scorecard)
+			.map({ currentHole, scorecard -> Int? in
+				scorecard.holes.firstIndex(where: { $0.id == currentHole.id })
+			})
+			.removeDuplicates()
+			.sink(receiveValue: { [weak self] index in
+				guard let self = self else { return }
+				if let index = index {
+					self.isOnFirstHole = index <= 0
+					self.isOnLastHole = index >= RoundViewModel.maxHoles - 1
+				} else {
+					self.isOnFirstHole = true
+					self.isOnLastHole = false
 				}
 			})
 			.store(in: &self.disposables)
