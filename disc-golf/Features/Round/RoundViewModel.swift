@@ -150,8 +150,10 @@ class RoundViewModel: ObservableObject {
 				guard
 					let self = self,
 					let currentIndex = currentIndex,
-					self.scorecard.holes.count < RoundViewModel.maxHoles
+					// Check that the current index isn't the last index on a full scorecard
+					currentIndex < RoundViewModel.maxHoles - 1
 				else { return }
+				
 				if currentIndex >= self.scorecard.holes.count - 1 {
 					var holes = self.scorecard.holes
 					let newHole = Hole(id: UUID(), name: "\(currentIndex + 2)", par: RoundViewModel.defaultPar.rawValue, strokes: nil)
