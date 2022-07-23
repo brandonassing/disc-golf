@@ -42,6 +42,7 @@ struct RoundView: View {
 							Button(action: self.viewModel.inputs.decreaseStrokes.send) {
 								Image(systemName: "minus")
 							}
+							.disabled(self.viewModel.isOnFirstThrow)
 							
 							if let strokes = self.viewModel.strokes {
 								Text("\(strokes)")
@@ -52,6 +53,7 @@ struct RoundView: View {
 							Button(action: self.viewModel.inputs.increaseStrokes.send) {
 								Image(systemName: "plus")
 							}
+							.disabled(self.viewModel.isOnLastThrow)
 						}
 					}
 					

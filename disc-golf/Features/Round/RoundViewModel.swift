@@ -25,6 +25,9 @@ class RoundViewModel: ObservableObject {
 	// TODO: update currentHole/scorecard connection. It feels bloated
 	@Published var currentHole: Hole
 	@Published var scorecard: Scorecard
+	
+	@Published var isOnFirstThrow: Bool = true
+	@Published var isOnLastThrow: Bool = false
 
 	private var disposables = Set<AnyCancellable>()
 	
@@ -72,6 +75,19 @@ class RoundViewModel: ObservableObject {
 				let newStrokes = (self.strokes ?? 0) + 1
 				guard newStrokes <= RoundViewModel.maxStrokes else { return }
 				self.strokes = newStrokes
+			})
+			.store(in: &self.disposables)
+		
+		self.$strokes
+			.sink(receiveValue: { [weak self] strokes in
+				guard let self = self else { return }
+				if let strokes = strokes {
+					self.isOnFirstThrow = strokes < 1
+					self.isOnLastThrow = strokes >= RoundViewModel.maxStrokes
+				} else {
+					self.isOnFirstThrow = true
+					self.isOnLastThrow = false
+				}
 			})
 			.store(in: &self.disposables)
 
