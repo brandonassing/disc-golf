@@ -25,6 +25,11 @@ class RoundViewModel: ObservableObject {
 	// TODO: update currentHole/scorecard connection. It feels bloated
 	@Published var currentHole: Hole
 	@Published var scorecard: Scorecard
+	
+	@Published var isOnFirstThrow: Bool = true
+	@Published var isOnLastThrow: Bool = false
+	@Published var isOnFirstHole: Bool = true
+	@Published var isOnLastHole: Bool = false
 
 	private var disposables = Set<AnyCancellable>()
 	
@@ -72,6 +77,19 @@ class RoundViewModel: ObservableObject {
 				let newStrokes = (self.strokes ?? 0) + 1
 				guard newStrokes <= RoundViewModel.maxStrokes else { return }
 				self.strokes = newStrokes
+			})
+			.store(in: &self.disposables)
+		
+		self.$strokes
+			.sink(receiveValue: { [weak self] strokes in
+				guard let self = self else { return }
+				if let strokes = strokes {
+					self.isOnFirstThrow = strokes < 1
+					self.isOnLastThrow = strokes >= RoundViewModel.maxStrokes
+				} else {
+					self.isOnFirstThrow = true
+					self.isOnLastThrow = false
+				}
 			})
 			.store(in: &self.disposables)
 
@@ -132,8 +150,10 @@ class RoundViewModel: ObservableObject {
 				guard
 					let self = self,
 					let currentIndex = currentIndex,
-					self.scorecard.holes.count < RoundViewModel.maxHoles
+					// Check that the current index isn't the last index on a full scorecard
+					currentIndex < RoundViewModel.maxHoles - 1
 				else { return }
+				
 				if currentIndex >= self.scorecard.holes.count - 1 {
 					var holes = self.scorecard.holes
 					let newHole = Hole(id: UUID(), name: "\(currentIndex + 2)", par: RoundViewModel.defaultPar.rawValue, strokes: nil)
@@ -142,6 +162,23 @@ class RoundViewModel: ObservableObject {
 					self.currentHole = newHole
 				} else {
 					self.currentHole = self.scorecard.holes[currentIndex + 1]
+				}
+			})
+			.store(in: &self.disposables)
+		
+		Publishers.CombineLatest(self.$currentHole, self.$scorecard)
+			.map({ currentHole, scorecard -> Int? in
+				scorecard.holes.firstIndex(where: { $0.id == currentHole.id })
+			})
+			.removeDuplicates()
+			.sink(receiveValue: { [weak self] index in
+				guard let self = self else { return }
+				if let index = index {
+					self.isOnFirstHole = index <= 0
+					self.isOnLastHole = index >= RoundViewModel.maxHoles - 1
+				} else {
+					self.isOnFirstHole = true
+					self.isOnLastHole = false
 				}
 			})
 			.store(in: &self.disposables)
